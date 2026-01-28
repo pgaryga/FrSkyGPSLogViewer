@@ -1,0 +1,3 @@
+<Solution Description="Generate KML files from FrSky GPS Logs">
+  <Project Path="FrSkyLogViewer/FrSkyGPSLogViewer.vbproj" />
+</Solution>
