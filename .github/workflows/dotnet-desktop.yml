@@ -50,6 +50,7 @@ jobs:
 
     strategy:
       matrix:
+        dotnet-version: [ '8.0.x', '10.0.x' ]
         configuration: [Debug, Release]
 
     runs-on: windows-latest  # For a list of available runner types, refer to
