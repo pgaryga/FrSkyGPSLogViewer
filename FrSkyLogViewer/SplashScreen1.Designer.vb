@@ -51,7 +51,7 @@ Partial Class SplashScreen1
         MainLayoutPanel.Name = "MainLayoutPanel"
         MainLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Absolute, 218F))
         MainLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Absolute, 38F))
-        MainLayoutPanel.Size = New Size(496, 303)
+        MainLayoutPanel.Size = New Size(595, 346)
         MainLayoutPanel.TabIndex = 0
         ' 
         ' DetailsLayoutPanel
@@ -63,7 +63,7 @@ Partial Class SplashScreen1
         DetailsLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 142F))
         DetailsLayoutPanel.Controls.Add(Version, 0, 0)
         DetailsLayoutPanel.Controls.Add(Copyright, 0, 1)
-        DetailsLayoutPanel.Location = New Point(246, 221)
+        DetailsLayoutPanel.Location = New Point(295, 242)
         DetailsLayoutPanel.Name = "DetailsLayoutPanel"
         DetailsLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 33F))
         DetailsLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 33F))
@@ -98,7 +98,7 @@ Partial Class SplashScreen1
         ApplicationTitle.BackColor = Color.Transparent
         ApplicationTitle.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         ApplicationTitle.ImageAlign = ContentAlignment.TopCenter
-        ApplicationTitle.Location = New Point(246, 25)
+        ApplicationTitle.Location = New Point(295, 25)
         ApplicationTitle.Name = "ApplicationTitle"
         ApplicationTitle.Size = New Size(247, 168)
         ApplicationTitle.TabIndex = 0
@@ -109,7 +109,7 @@ Partial Class SplashScreen1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(496, 303)
+        ClientSize = New Size(595, 346)
         ControlBox = False
         Controls.Add(MainLayoutPanel)
         FormBorderStyle = FormBorderStyle.FixedSingle

@@ -22,6 +22,7 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         MenuStrip1 = New MenuStrip()
         OpenToolStripMenuItem = New ToolStripMenuItem()
         ExportKMLToolStripMenuItem = New ToolStripMenuItem()
@@ -38,7 +39,7 @@ Partial Class frmMain
         MenuStrip1.Items.AddRange(New ToolStripItem() {OpenToolStripMenuItem, ExportKMLToolStripMenuItem, SettingsToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Size = New Size(800, 33)
+        MenuStrip1.Size = New Size(1178, 33)
         MenuStrip1.TabIndex = 0
         MenuStrip1.Text = "MenuStrip1"
         ' 
@@ -66,23 +67,25 @@ Partial Class frmMain
         ' 
         ' DataGridView1
         ' 
+        DataGridView1.AllowUserToOrderColumns = True
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Dock = DockStyle.Fill
         DataGridView1.Location = New Point(0, 33)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(800, 417)
+        DataGridView1.Size = New Size(1178, 711)
         DataGridView1.TabIndex = 1
         ' 
         ' frmMain
         ' 
-        AutoScaleDimensions = New SizeF(10.0F, 25.0F)
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(1178, 744)
         Controls.Add(DataGridView1)
         Controls.Add(MenuStrip1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MainMenuStrip = MenuStrip1
         Name = "frmMain"
         Text = "Log to KML"

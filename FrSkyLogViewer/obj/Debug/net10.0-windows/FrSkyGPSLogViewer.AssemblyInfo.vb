@@ -17,7 +17,7 @@ Imports System.Reflection
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © Pete Garyga 2026"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("0.1"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82f218a4fc5a66b118963cc4292c41f443f7084c"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67c03e25b60c5befd8c6bacbc431f3428c905be3"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("FrSkyGPSLogViewer"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("FrSKY GPS Log to KML "),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("0.1"),  _

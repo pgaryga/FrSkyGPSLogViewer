@@ -57,6 +57,7 @@
         myProcess.StartInfo.RedirectStandardOutput = False
         myProcess.Start()
         myProcess.Dispose()
+        Return True
     End Function
 
     Private Function GenerateKML() As String
@@ -194,5 +195,21 @@
 
     Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
         Dim dialogResult1 = dlgSettings.ShowDialog(Me)
+    End Sub
+
+    Private Sub dataGridView1_CellFormatting(ByVal sender As Object,
+ByVal e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) _
+    Handles DataGridView1.CellFormatting
+        'colour altitude cells based on min/max settings
+        If DataGridView1.Columns(e.ColumnIndex).Name.Equals(My.Settings.Altitude_Source) Then
+            If CInt(e.Value) < My.Settings.MinAltitude Then
+                e.CellStyle.BackColor = Color.Red
+                e.CellStyle.SelectionBackColor = Color.DarkRed
+            ElseIf CInt(e.Value) > My.Settings.MaxAltitude Then
+                e.CellStyle.BackColor = Color.LightBlue
+                e.CellStyle.SelectionBackColor = Color.Blue
+
+            End If
+        End If
     End Sub
 End Class

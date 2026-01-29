@@ -174,9 +174,9 @@ Partial Class dlgSettings
         Label5.AutoSize = True
         Label5.Location = New Point(419, 29)
         Label5.Name = "Label5"
-        Label5.Size = New Size(130, 25)
+        Label5.Size = New Size(140, 25)
         Label5.TabIndex = 33
-        Label5.Text = "KML Line Color"
+        Label5.Text = "KML Line Colour"
         ' 
         ' txtKMLColor
         ' 
