@@ -81,13 +81,3 @@ jobs:
     - name: Execute unit tests
       run: dotnet test --no-restore --logger trx --results-directory "TestResults"
 
-    - name: Create the package
-      run: dotnet pack --configuration Release <my project>
-    - name: Publish the package to GPR
-      run: dotnet nuget push <my project>/bin/Release/*.nupkg
-
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
