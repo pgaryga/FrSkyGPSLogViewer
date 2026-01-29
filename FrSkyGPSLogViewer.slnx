@@ -1,3 +1,8 @@
-<Solution Description="Generate KML files from FrSky GPS Logs">
-  <Project Path="FrSkyLogViewer/FrSkyGPSLogViewer.vbproj" />
+<Solution>
+  <Configurations>
+    <Platform Name="Default" />
+  </Configurations>
+  <Project Path="SetupLogsToKML/SetupLogsToKML.vdproj" Type="Installer">
+    <Build />
+  </Project>
 </Solution>

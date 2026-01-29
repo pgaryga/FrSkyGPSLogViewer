@@ -1,6 +1,8 @@
 ﻿Public Class frmMain
     Dim MyFile As DialogResult
-    Dim GPS, col As Integer
+    Dim col As Integer
+    Dim GPS As Integer
+
     Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
         OpenFileDialog1.Filter = "Log Files|*.log;*.csv|All Files|*.*"
         OpenFileDialog1.Title = "Open FrSky GPS Log File"
@@ -15,6 +17,7 @@
             ' Assuming the first line contains headers
             Dim headers As String() = lines(0).Split(","c)
             col = 0
+            GPS = -1
             For Each header As String In headers
                 Try
                     col += 1
@@ -27,18 +30,21 @@
                 Catch ex As Exception
                     dataTable.Columns.Add(header + "1")
                 End Try
-
             Next
             ' Add the rest of the lines as rows
+
             For i As Integer = 1 To lines.Length - 1
                 Dim rowValues As String() = lines(i).Split(","c)
                 dataTable.Rows.Add(rowValues)
-                If rowValues(GPS) <> "" Then
+                If GPS > -1 AndAlso rowValues(GPS) <> "" Then
                     Dim rowGPS As String() = rowValues(GPS).Split(" "c)
                     dataTable.Rows(i - 1)(My.Settings.Latitude) = rowGPS(0) ' GPS Latitude
                     dataTable.Rows(i - 1)(My.Settings.Longitude) = rowGPS(1) ' GPS Longitude
                 End If
             Next
+            If headers(headers.count - 1) = "" Then ' remove empty trailing column if present
+                dataTable.Columns.RemoveAt(dataTable.Columns.Count - 1)
+            End If
             DataGridView1.DataSource = dataTable
             MyFile = DialogResult.OK
         Else
@@ -174,19 +180,24 @@
 
         Return kmlContent.ToString
     End Function
-    Private Sub ExportKMLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportKMLToolStripMenuItem.Click
-        If MyFile = DialogResult.OK Then
-            Dim saveFileDialog As New SaveFileDialog()
-            saveFileDialog.Filter = "KML Files|*.kml|All Files|*.*"
-            saveFileDialog.FileName = Mid(Me.Text, 19) & ".kml"
-            If saveFileDialog.ShowDialog() = DialogResult.OK Then
-                System.IO.File.WriteAllText(saveFileDialog.FileName, GenerateKML())
-                If My.Settings.OpenApp Then
-                    ShellExecute(saveFileDialog.FileName)
-                Else
-                    MessageBox.Show("KML file exported successfully.", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                End If
 
+    Private Sub ExportKMLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportKMLToolStripMenuItem.Click
+
+        If MyFile = DialogResult.OK Then
+            If GPS < 0 Then
+                MessageBox.Show("No GPS data in the file. Please open a log file containing GPS data.", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                Dim saveFileDialog As New SaveFileDialog()
+                saveFileDialog.Filter = "KML Files|*.kml|All Files|*.*"
+                saveFileDialog.FileName = Mid(Me.Text, 19) & ".kml"
+                If saveFileDialog.ShowDialog() = DialogResult.OK Then
+                    System.IO.File.WriteAllText(saveFileDialog.FileName, GenerateKML())
+                    If My.Settings.OpenApp Then
+                        ShellExecute(saveFileDialog.FileName)
+                    Else
+                        MessageBox.Show("KML file exported successfully.", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                End If
             End If
         Else
             MessageBox.Show("No data to export. Please open a log file first.", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -202,6 +213,9 @@ ByVal e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) _
     Handles DataGridView1.CellFormatting
         'colour altitude cells based on min/max settings
         If DataGridView1.Columns(e.ColumnIndex).Name.Equals(My.Settings.Altitude_Source) Then
+            If e.Value Is Nothing OrElse e.Value Is DBNull.Value Then
+                Return
+            End If
             If CInt(e.Value) < My.Settings.MinAltitude Then
                 e.CellStyle.BackColor = Color.Red
                 e.CellStyle.SelectionBackColor = Color.DarkRed
