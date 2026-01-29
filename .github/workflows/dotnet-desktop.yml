@@ -57,7 +57,7 @@ jobs:
 
     env:
       Solution_Name: FrSkyGPSLogViewer.slnx                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: FrSkyGPSLogViewer\Tests                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Test_Project_Path: FrSkyGPSLogViewer\FrSkyLogViewer\Tests                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       Wap_Project_Directory: FrSkyGPSLogViewer.Package   # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
       Wap_Project_Path: FrSkyGPSLogViewer.Package.wapproj                  # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
@@ -79,7 +79,12 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test
+      run: dotnet test --no-restore --logger trx --results-directory "TestResults"
+
+    - name: Create the package
+      run: dotnet pack --configuration Release <my project>
+    - name: Publish the package to GPR
+      run: dotnet nuget push <my project>/bin/Release/*.nupkg
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
