@@ -1,0 +1,6 @@
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\FrSkyGPSLogViewer.exe
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\FrSkyGPSLogViewer.dll
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\FrSkyGPSLogViewer.deps.json
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\FrSkyGPSLogViewer.runtimeconfig.json
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\FrSkyGPSLogViewer.dll.config
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\FrSkyGPSLogViewer.pdb

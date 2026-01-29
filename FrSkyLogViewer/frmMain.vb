@@ -103,9 +103,6 @@
         kmlContent.AppendLine($"<color>{col}</color>")
         kmlContent.AppendLine($"<width>{My.Settings.KMLLineWidth}</width>")
         kmlContent.AppendLine("</LineStyle>")
-        kmlContent.AppendLine("<PolyStyle>")
-        kmlContent.AppendLine("<color>7f00ff00</color>")
-        kmlContent.AppendLine("</PolyStyle>")
         kmlContent.AppendLine("</Style>")
 
         kmlContent.AppendLine("<Placemark>")
@@ -118,16 +115,13 @@
             Dim longitude As String = row(My.Settings.Longitude).ToString()
 
             If My.Settings.Use_Altitude Then
-                Dim iAltval As Long = row(My.Settings.Altitude_Source)
+                Dim iAltval As Long = row(My.Settings.Altitude_Source) + My.Settings.AltitudeOffset
                 If iAltval < My.Settings.MinAltitude Then iAltval = My.Settings.MinAltitude
                 If iAltval > My.Settings.MaxAltitude Then iAltval = My.Settings.MaxAltitude
                 altitude = iAltval.ToString()
             End If
-
             If Not String.IsNullOrEmpty(latitude) AndAlso Not String.IsNullOrEmpty(longitude) Then
                 kmlContent.AppendLine($"{longitude},{latitude},{altitude}")
-                'lastLatitude = latitude
-                'lastLongitude = longitude
                 Exit For
             End If
         Next
@@ -149,9 +143,8 @@
             Dim longitude As String = row(My.Settings.Longitude).ToString()
 
             If My.Settings.Use_Altitude Then
-                Dim iAltval As Long = row(My.Settings.Altitude_Source)
+                Dim iAltval As Long = row(My.Settings.Altitude_Source) + My.Settings.AltitudeOffset
                 If iAltval < My.Settings.MinAltitude Then iAltval = My.Settings.MinAltitude
-                'If iAltval < My.Settings.MinAltitude Then iAltval += 800 '= My.Settings.MinAltitude
                 If iAltval > My.Settings.MaxAltitude Then iAltval = My.Settings.MaxAltitude
                 altitude = iAltval.ToString()
             End If
@@ -200,6 +193,6 @@
     End Sub
 
     Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
-        Dim dialogResult1 = frmSettings.ShowDialog()
+        Dim dialogResult1 = dlgSettings.ShowDialog(Me)
     End Sub
 End Class
