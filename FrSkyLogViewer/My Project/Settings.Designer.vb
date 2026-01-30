@@ -127,7 +127,8 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Blue")>  _
         Public Property KMLLineColor() As Global.System.Drawing.Color
             Get
                 Return CType(Me("KMLLineColor"),Global.System.Drawing.Color)
@@ -182,6 +183,18 @@ Namespace My
             End Get
             Set
                 Me("AltitudeOffset") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0.1")>  _
+        Public Property AnnimationDelay() As Double
+            Get
+                Return CType(Me("AnnimationDelay"),Double)
+            End Get
+            Set
+                Me("AnnimationDelay") = value
             End Set
         End Property
     End Class

@@ -13,6 +13,7 @@ Public Class dlgSettings
         nudMinAlt.Value = My.Settings.MinAltitude
         nudMaxAlt.Value = My.Settings.MaxAltitude
         nudAltOffset.Value = My.Settings.AltitudeOffset
+        nudAnnimationDelay.Value = My.Settings.AnnimationDelay
         chkUseAltitude.Checked = My.Settings.Use_Altitude
         chkOpenApp.Checked = My.Settings.OpenApp
     End Sub
@@ -52,6 +53,7 @@ Public Class dlgSettings
         My.Settings.MaxAltitude = nudMaxAlt.Value
         My.Settings.AltitudeOffset = nudAltOffset.Value
         My.Settings.Use_Altitude = chkUseAltitude.Checked
+        My.Settings.AnnimationDelay = nudAnnimationDelay.Value
         My.Settings.OpenApp = chkOpenApp.Checked
         My.Settings.Save()
         Me.DialogResult = System.Windows.Forms.DialogResult.OK

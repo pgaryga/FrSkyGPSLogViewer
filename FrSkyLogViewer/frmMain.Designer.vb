@@ -24,8 +24,11 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         MenuStrip1 = New MenuStrip()
-        OpenToolStripMenuItem = New ToolStripMenuItem()
-        ExportKMLToolStripMenuItem = New ToolStripMenuItem()
+        FileToolStripMenuItem = New ToolStripMenuItem()
+        mnuOpen = New ToolStripMenuItem()
+        ExportToolStripMenuItem = New ToolStripMenuItem()
+        KMLToolStripMenuItem = New ToolStripMenuItem()
+        AnimatedKMLToolStripMenuItem = New ToolStripMenuItem()
         SettingsToolStripMenuItem = New ToolStripMenuItem()
         OpenFileDialog1 = New OpenFileDialog()
         DataGridView1 = New DataGridView()
@@ -36,24 +39,44 @@ Partial Class frmMain
         ' MenuStrip1
         ' 
         MenuStrip1.ImageScalingSize = New Size(24, 24)
-        MenuStrip1.Items.AddRange(New ToolStripItem() {OpenToolStripMenuItem, ExportKMLToolStripMenuItem, SettingsToolStripMenuItem})
+        MenuStrip1.Items.AddRange(New ToolStripItem() {FileToolStripMenuItem, SettingsToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
         MenuStrip1.Size = New Size(1178, 33)
         MenuStrip1.TabIndex = 0
         MenuStrip1.Text = "MenuStrip1"
         ' 
-        ' OpenToolStripMenuItem
+        ' FileToolStripMenuItem
         ' 
-        OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        OpenToolStripMenuItem.Size = New Size(72, 29)
-        OpenToolStripMenuItem.Text = "&Open"
+        FileToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {mnuOpen, ExportToolStripMenuItem})
+        FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        FileToolStripMenuItem.Size = New Size(54, 29)
+        FileToolStripMenuItem.Text = "&File"
         ' 
-        ' ExportKMLToolStripMenuItem
+        ' mnuOpen
         ' 
-        ExportKMLToolStripMenuItem.Name = "ExportKMLToolStripMenuItem"
-        ExportKMLToolStripMenuItem.Size = New Size(118, 29)
-        ExportKMLToolStripMenuItem.Text = "&Export KML"
+        mnuOpen.Name = "mnuOpen"
+        mnuOpen.Size = New Size(270, 34)
+        mnuOpen.Text = "&Open"
+        ' 
+        ' ExportToolStripMenuItem
+        ' 
+        ExportToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {KMLToolStripMenuItem, AnimatedKMLToolStripMenuItem})
+        ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
+        ExportToolStripMenuItem.Size = New Size(270, 34)
+        ExportToolStripMenuItem.Text = "&Export"
+        ' 
+        ' KMLToolStripMenuItem
+        ' 
+        KMLToolStripMenuItem.Name = "KMLToolStripMenuItem"
+        KMLToolStripMenuItem.Size = New Size(270, 34)
+        KMLToolStripMenuItem.Text = "&KML"
+        ' 
+        ' AnimatedKMLToolStripMenuItem
+        ' 
+        AnimatedKMLToolStripMenuItem.Name = "AnimatedKMLToolStripMenuItem"
+        AnimatedKMLToolStripMenuItem.Size = New Size(270, 34)
+        AnimatedKMLToolStripMenuItem.Text = "&Animated KML"
         ' 
         ' SettingsToolStripMenuItem
         ' 
@@ -97,10 +120,13 @@ Partial Class frmMain
     End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents OpenToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ExportKMLToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuOpen As ToolStripMenuItem
+    Friend WithEvents ExportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents KMLToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AnimatedKMLToolStripMenuItem As ToolStripMenuItem
 
 End Class

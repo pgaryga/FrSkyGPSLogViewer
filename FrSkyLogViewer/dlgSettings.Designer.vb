@@ -23,8 +23,9 @@ Partial Class dlgSettings
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         TableLayoutPanel1 = New TableLayoutPanel()
-        OK_Button = New Button()
         Cancel_Button = New Button()
+        OK_Button = New Button()
+        chkOpenApp = New CheckBox()
         btnGPSColumn = New Button()
         nudMaxAlt = New NumericUpDown()
         Label7 = New Label()
@@ -35,7 +36,6 @@ Partial Class dlgSettings
         btnColor = New Button()
         Label5 = New Label()
         txtKMLColor = New TextBox()
-        chkOpenApp = New CheckBox()
         Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
@@ -48,48 +48,63 @@ Partial Class dlgSettings
         nudAltOffset = New NumericUpDown()
         Label9 = New Label()
         btnAltitudeColumn = New Button()
+        nudAnnimationDelay = New NumericUpDown()
+        Label10 = New Label()
         TableLayoutPanel1.SuspendLayout()
         CType(nudMaxAlt, ComponentModel.ISupportInitialize).BeginInit()
         CType(nudMinAlt, ComponentModel.ISupportInitialize).BeginInit()
         CType(nudKMLLineWidth, ComponentModel.ISupportInitialize).BeginInit()
         CType(nudAltOffset, ComponentModel.ISupportInitialize).BeginInit()
+        CType(nudAnnimationDelay, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
-        TableLayoutPanel1.ColumnCount = 2
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.Controls.Add(OK_Button, 0, 0)
-        TableLayoutPanel1.Controls.Add(Cancel_Button, 1, 0)
-        TableLayoutPanel1.Location = New Point(528, 266)
+        TableLayoutPanel1.ColumnCount = 3
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle())
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle())
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle())
+        TableLayoutPanel1.Controls.Add(Cancel_Button, 2, 0)
+        TableLayoutPanel1.Controls.Add(OK_Button, 1, 0)
+        TableLayoutPanel1.Controls.Add(chkOpenApp, 0, 0)
+        TableLayoutPanel1.Location = New Point(223, 280)
         TableLayoutPanel1.Margin = New Padding(5, 6, 5, 6)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.Size = New Size(243, 56)
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel1.Size = New Size(496, 56)
         TableLayoutPanel1.TabIndex = 0
+        ' 
+        ' Cancel_Button
+        ' 
+        Cancel_Button.Anchor = AnchorStyles.None
+        Cancel_Button.Location = New Point(378, 6)
+        Cancel_Button.Margin = New Padding(5, 6, 5, 6)
+        Cancel_Button.Name = "Cancel_Button"
+        Cancel_Button.Size = New Size(112, 44)
+        Cancel_Button.TabIndex = 1
+        Cancel_Button.Text = "Cancel"
         ' 
         ' OK_Button
         ' 
         OK_Button.Anchor = AnchorStyles.None
-        OK_Button.Location = New Point(5, 6)
+        OK_Button.Location = New Point(257, 6)
         OK_Button.Margin = New Padding(5, 6, 5, 6)
         OK_Button.Name = "OK_Button"
         OK_Button.Size = New Size(111, 44)
         OK_Button.TabIndex = 0
         OK_Button.Text = "OK"
         ' 
-        ' Cancel_Button
+        ' chkOpenApp
         ' 
-        Cancel_Button.Anchor = AnchorStyles.None
-        Cancel_Button.Location = New Point(126, 6)
-        Cancel_Button.Margin = New Padding(5, 6, 5, 6)
-        Cancel_Button.Name = "Cancel_Button"
-        Cancel_Button.Size = New Size(112, 44)
-        Cancel_Button.TabIndex = 1
-        Cancel_Button.Text = "Cancel"
+        chkOpenApp.AutoSize = True
+        chkOpenApp.Location = New Point(3, 3)
+        chkOpenApp.Name = "chkOpenApp"
+        chkOpenApp.Size = New Size(246, 29)
+        chkOpenApp.TabIndex = 31
+        chkOpenApp.Text = "Open KML App After Save"
+        chkOpenApp.UseVisualStyleBackColor = True
         ' 
         ' btnGPSColumn
         ' 
@@ -184,16 +199,6 @@ Partial Class dlgSettings
         txtKMLColor.Name = "txtKMLColor"
         txtKMLColor.Size = New Size(150, 31)
         txtKMLColor.TabIndex = 32
-        ' 
-        ' chkOpenApp
-        ' 
-        chkOpenApp.AutoSize = True
-        chkOpenApp.Location = New Point(250, 281)
-        chkOpenApp.Name = "chkOpenApp"
-        chkOpenApp.Size = New Size(246, 29)
-        chkOpenApp.TabIndex = 31
-        chkOpenApp.Text = "Open KML App After Save"
-        chkOpenApp.UseVisualStyleBackColor = True
         ' 
         ' Label4
         ' 
@@ -297,13 +302,36 @@ Partial Class dlgSettings
         btnAltitudeColumn.Text = "..."
         btnAltitudeColumn.UseVisualStyleBackColor = True
         ' 
+        ' nudAnnimationDelay
+        ' 
+        nudAnnimationDelay.DecimalPlaces = 2
+        nudAnnimationDelay.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
+        nudAnnimationDelay.Location = New Point(569, 238)
+        nudAnnimationDelay.Maximum = New Decimal(New Integer() {60, 0, 0, 0})
+        nudAnnimationDelay.Name = "nudAnnimationDelay"
+        nudAnnimationDelay.Size = New Size(150, 31)
+        nudAnnimationDelay.TabIndex = 46
+        nudAnnimationDelay.TextAlign = HorizontalAlignment.Right
+        nudAnnimationDelay.Value = New Decimal(New Integer() {5, 0, 0, 131072})
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Location = New Point(419, 238)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(143, 25)
+        Label10.TabIndex = 45
+        Label10.Text = "Animation Delay"
+        ' 
         ' dlgSettings
         ' 
         AcceptButton = OK_Button
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         CancelButton = Cancel_Button
-        ClientSize = New Size(785, 337)
+        ClientSize = New Size(785, 351)
+        Controls.Add(nudAnnimationDelay)
+        Controls.Add(Label10)
         Controls.Add(btnAltitudeColumn)
         Controls.Add(nudAltOffset)
         Controls.Add(Label9)
@@ -317,7 +345,6 @@ Partial Class dlgSettings
         Controls.Add(btnColor)
         Controls.Add(Label5)
         Controls.Add(txtKMLColor)
-        Controls.Add(chkOpenApp)
         Controls.Add(Label4)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -337,10 +364,12 @@ Partial Class dlgSettings
         StartPosition = FormStartPosition.CenterParent
         Text = "Settings"
         TableLayoutPanel1.ResumeLayout(False)
+        TableLayoutPanel1.PerformLayout()
         CType(nudMaxAlt, ComponentModel.ISupportInitialize).EndInit()
         CType(nudMinAlt, ComponentModel.ISupportInitialize).EndInit()
         CType(nudKMLLineWidth, ComponentModel.ISupportInitialize).EndInit()
         CType(nudAltOffset, ComponentModel.ISupportInitialize).EndInit()
+        CType(nudAnnimationDelay, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
 
@@ -371,5 +400,7 @@ Partial Class dlgSettings
     Friend WithEvents nudAltOffset As NumericUpDown
     Friend WithEvents Label9 As Label
     Friend WithEvents btnAltitudeColumn As Button
+    Friend WithEvents nudAnnimationDelay As NumericUpDown
+    Friend WithEvents Label10 As Label
 
 End Class
