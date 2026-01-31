@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "S4F4LJT1lKA=",
+  "dgSpecHash": "qvVKLrsKa1E=",
   "success": true,
   "projectFilePath": "C:\\Users\\pete\\source\\repos\\FrSkyGPSLogViewer\\FrSkyLogViewer\\FrSkyGPSLogViewer.vbproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\pete\\.nuget\\packages\\winforms.datavisualization\\1.10.0\\winforms.datavisualization.1.10.0.nupkg.sha512"
+  ],
   "logs": []
 }

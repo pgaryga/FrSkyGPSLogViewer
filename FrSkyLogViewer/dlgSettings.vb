@@ -16,6 +16,7 @@ Public Class dlgSettings
         nudAnnimationDelay.Value = My.Settings.AnnimationDelay
         chkUseAltitude.Checked = My.Settings.Use_Altitude
         chkOpenApp.Checked = My.Settings.OpenApp
+        cboKMLAltitideMode.SelectedText = My.Settings.KMLAltitudeMode
     End Sub
 
     Private Sub btnGPSColumn_Click(sender As Object, e As EventArgs) Handles btnGPSColumn.Click
@@ -53,6 +54,7 @@ Public Class dlgSettings
         My.Settings.MaxAltitude = nudMaxAlt.Value
         My.Settings.AltitudeOffset = nudAltOffset.Value
         My.Settings.Use_Altitude = chkUseAltitude.Checked
+        My.Settings.KMLAltitudeMode = cboKMLAltitideMode.Text
         My.Settings.AnnimationDelay = nudAnnimationDelay.Value
         My.Settings.OpenApp = chkOpenApp.Checked
         My.Settings.Save()

@@ -32,6 +32,7 @@ Partial Class frmMain
         SettingsToolStripMenuItem = New ToolStripMenuItem()
         OpenFileDialog1 = New OpenFileDialog()
         DataGridView1 = New DataGridView()
+        DashboardToolStripMenuItem = New ToolStripMenuItem()
         MenuStrip1.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -39,7 +40,7 @@ Partial Class frmMain
         ' MenuStrip1
         ' 
         MenuStrip1.ImageScalingSize = New Size(24, 24)
-        MenuStrip1.Items.AddRange(New ToolStripItem() {FileToolStripMenuItem, SettingsToolStripMenuItem})
+        MenuStrip1.Items.AddRange(New ToolStripItem() {FileToolStripMenuItem, DashboardToolStripMenuItem, SettingsToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
         MenuStrip1.Size = New Size(1178, 33)
@@ -56,26 +57,26 @@ Partial Class frmMain
         ' mnuOpen
         ' 
         mnuOpen.Name = "mnuOpen"
-        mnuOpen.Size = New Size(270, 34)
+        mnuOpen.Size = New Size(165, 34)
         mnuOpen.Text = "&Open"
         ' 
         ' ExportToolStripMenuItem
         ' 
         ExportToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {KMLToolStripMenuItem, AnimatedKMLToolStripMenuItem})
         ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        ExportToolStripMenuItem.Size = New Size(270, 34)
+        ExportToolStripMenuItem.Size = New Size(165, 34)
         ExportToolStripMenuItem.Text = "&Export"
         ' 
         ' KMLToolStripMenuItem
         ' 
         KMLToolStripMenuItem.Name = "KMLToolStripMenuItem"
-        KMLToolStripMenuItem.Size = New Size(270, 34)
+        KMLToolStripMenuItem.Size = New Size(230, 34)
         KMLToolStripMenuItem.Text = "&KML"
         ' 
         ' AnimatedKMLToolStripMenuItem
         ' 
         AnimatedKMLToolStripMenuItem.Name = "AnimatedKMLToolStripMenuItem"
-        AnimatedKMLToolStripMenuItem.Size = New Size(270, 34)
+        AnimatedKMLToolStripMenuItem.Size = New Size(230, 34)
         AnimatedKMLToolStripMenuItem.Text = "&Animated KML"
         ' 
         ' SettingsToolStripMenuItem
@@ -99,6 +100,12 @@ Partial Class frmMain
         DataGridView1.RowHeadersWidth = 62
         DataGridView1.Size = New Size(1178, 711)
         DataGridView1.TabIndex = 1
+        ' 
+        ' DashboardToolStripMenuItem
+        ' 
+        DashboardToolStripMenuItem.Name = "DashboardToolStripMenuItem"
+        DashboardToolStripMenuItem.Size = New Size(116, 29)
+        DashboardToolStripMenuItem.Text = "&Dashboard"
         ' 
         ' frmMain
         ' 
@@ -128,5 +135,6 @@ Partial Class frmMain
     Friend WithEvents ExportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents KMLToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AnimatedKMLToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DashboardToolStripMenuItem As ToolStripMenuItem
 
 End Class

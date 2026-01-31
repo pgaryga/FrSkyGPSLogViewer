@@ -1,5 +1,6 @@
 ﻿Public Class frmMain
     Dim MyFile As DialogResult
+    Dim blDataLoaded As Boolean = False
     Dim colmn As Integer
     Dim GPS As Integer
 
@@ -168,7 +169,7 @@
                 kmlContent.AppendLine("<styleUrl>#line-style</styleUrl>")
                 kmlContent.AppendLine("<LineString>")
                 kmlContent.AppendLine("<tessellate>1</tessellate>")
-                kmlContent.AppendLine("<altitudeMode>relativeToSeaFloor</altitudeMode>")
+                kmlContent.AppendLine($"<altitudeMode>{My.Settings.KMLAltitudeMode}</altitudeMode>") '
                 kmlContent.AppendLine("<coordinates>")
                 kmlContent.AppendLine($"{lastLongitude},{lastLatitude},{lastAltitude},{longitude},{latitude},{altitude}")
                 kmlContent.AppendLine("</coordinates>")
@@ -212,7 +213,7 @@
         kmlContent.AppendLine("<styleUrl>#flightLine</styleUrl>")
         kmlContent.AppendLine("<LineString>")
         kmlContent.AppendLine("<tessellate>1</tessellate>")
-        kmlContent.AppendLine("<altitudeMode>relativeToGround</altitudeMode>")
+        kmlContent.AppendLine($"<altitudeMode>{My.Settings.KMLAltitudeMode}</altitudeMode>")
         kmlContent.AppendLine("<coordinates>")
 
         For Each row As DataRow In dataTable.Rows
@@ -323,6 +324,7 @@ ByVal e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) _
             End If
             DataGridView1.DataSource = dataTable
             MyFile = DialogResult.OK
+            blDataLoaded = True
         Else
             MyFile = DialogResult.Cancel
         End If
@@ -330,7 +332,7 @@ ByVal e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) _
     End Sub
 
     Private Sub KMLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KMLToolStripMenuItem.Click
-        If MyFile = DialogResult.OK Then
+        If blDataLoaded Then
             If GPS < 0 Then
                 MessageBox.Show("No GPS data in the file. Please open a log file containing GPS data.", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
@@ -352,7 +354,7 @@ ByVal e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) _
     End Sub
 
     Private Sub AnimatedKMLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnimatedKMLToolStripMenuItem.Click
-        If MyFile = DialogResult.OK Then
+        If blDataLoaded Then
             If GPS < 0 Then
                 MessageBox.Show("No GPS data in the file. Please open a log file containing GPS data.", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
@@ -370,6 +372,14 @@ ByVal e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) _
             End If
         Else
             MessageBox.Show("No data to export. Please open a log file first.", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Private Sub DashboardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DashboardToolStripMenuItem.Click
+        If blDataLoaded Then
+            frmCharts.ShowDialog(Me)
+        Else
+            MessageBox.Show("No data to view. Please open a log file first.", "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 End Class

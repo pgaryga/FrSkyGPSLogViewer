@@ -42,3 +42,8 @@ C:\Users\pete\source\repos\pgaryga\FrSkyGPSLogViewer\FrSkyLogViewer\obj\Debug\ne
 C:\Users\pete\source\repos\pgaryga\FrSkyGPSLogViewer\FrSkyLogViewer\obj\Debug\net10.0-windows\FrSkyGPSLogViewer.pdb
 C:\Users\pete\source\repos\pgaryga\FrSkyGPSLogViewer\FrSkyLogViewer\obj\Debug\net10.0-windows\FrSkyGPSLogViewer.genruntimeconfig.cache
 C:\Users\pete\source\repos\pgaryga\FrSkyGPSLogViewer\FrSkyLogViewer\obj\Debug\net10.0-windows\ref\FrSkyGPSLogViewer.dll
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\obj\Debug\net10.0-windows\FrSkyGPSLogViewer.frmCharts.resources
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\bin\Debug\net10.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\bin\Debug\net10.0-windows\WinForms.DataVisualization.dll
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\obj\Debug\net10.0-windows\FrSkyGPSLogViewer.vbproj.AssemblyReference.cache
+C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\obj\Debug\net10.0-windows\FrSkyGPS.A3EF35A7.Up2Date

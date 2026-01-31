@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>FrSkyGPSLogViewer</id>
+    <version>1.0.0</version>
+    <title>FrSKY GPS Log to KML</title>
+    <authors>FrSkyGPSLogViewer</authors>
+    <description>Package Description</description>
+    <copyright>Copyright © Pete Garyga 2026</copyright>
+    <repository type="git" commit="62441a70dc8c1f7d07830cd58ea4d900bb9bb44e" />
+    <dependencies>
+      <group targetFramework="net10.0-windows7.0">
+        <dependency id="WinForms.DataVisualization" version="1.10.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net10.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\bin\Debug\net10.0-windows\FrSkyGPSLogViewer.runtimeconfig.json" target="lib\net10.0-windows7.0\FrSkyGPSLogViewer.runtimeconfig.json" />
+    <file src="C:\Users\pete\source\repos\FrSkyGPSLogViewer\FrSkyLogViewer\bin\Debug\net10.0-windows\FrSkyGPSLogViewer.dll" target="lib\net10.0-windows7.0\FrSkyGPSLogViewer.dll" />
+  </files>
+</package>

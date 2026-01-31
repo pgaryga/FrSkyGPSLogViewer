@@ -50,6 +50,8 @@ Partial Class dlgSettings
         btnAltitudeColumn = New Button()
         nudAnnimationDelay = New NumericUpDown()
         Label10 = New Label()
+        Label11 = New Label()
+        cboKMLAltitideMode = New ComboBox()
         TableLayoutPanel1.SuspendLayout()
         CType(nudMaxAlt, ComponentModel.ISupportInitialize).BeginInit()
         CType(nudMinAlt, ComponentModel.ISupportInitialize).BeginInit()
@@ -68,18 +70,18 @@ Partial Class dlgSettings
         TableLayoutPanel1.Controls.Add(Cancel_Button, 2, 0)
         TableLayoutPanel1.Controls.Add(OK_Button, 1, 0)
         TableLayoutPanel1.Controls.Add(chkOpenApp, 0, 0)
-        TableLayoutPanel1.Location = New Point(223, 280)
+        TableLayoutPanel1.Location = New Point(208, 280)
         TableLayoutPanel1.Margin = New Padding(5, 6, 5, 6)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel1.Size = New Size(496, 56)
+        TableLayoutPanel1.Size = New Size(511, 56)
         TableLayoutPanel1.TabIndex = 0
         ' 
         ' Cancel_Button
         ' 
         Cancel_Button.Anchor = AnchorStyles.None
-        Cancel_Button.Location = New Point(378, 6)
+        Cancel_Button.Location = New Point(386, 6)
         Cancel_Button.Margin = New Padding(5, 6, 5, 6)
         Cancel_Button.Name = "Cancel_Button"
         Cancel_Button.Size = New Size(112, 44)
@@ -239,7 +241,7 @@ Partial Class dlgSettings
         ' chkUseAltitude
         ' 
         chkUseAltitude.AutoSize = True
-        chkUseAltitude.Location = New Point(208, 193)
+        chkUseAltitude.Location = New Point(211, 248)
         chkUseAltitude.Name = "chkUseAltitude"
         chkUseAltitude.Size = New Size(192, 29)
         chkUseAltitude.TabIndex = 26
@@ -323,6 +325,24 @@ Partial Class dlgSettings
         Label10.TabIndex = 45
         Label10.Text = "Animation Delay"
         ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Location = New Point(25, 201)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(165, 25)
+        Label11.TabIndex = 47
+        Label11.Text = "KML Altitude Mode"
+        ' 
+        ' cboKMLAltitideMode
+        ' 
+        cboKMLAltitideMode.FormattingEnabled = True
+        cboKMLAltitideMode.Items.AddRange(New Object() {"absolute", "relativeToGround", "relativeToSeaFloor"})
+        cboKMLAltitideMode.Location = New Point(208, 197)
+        cboKMLAltitideMode.Name = "cboKMLAltitideMode"
+        cboKMLAltitideMode.Size = New Size(182, 33)
+        cboKMLAltitideMode.TabIndex = 48
+        ' 
         ' dlgSettings
         ' 
         AcceptButton = OK_Button
@@ -330,6 +350,8 @@ Partial Class dlgSettings
         AutoScaleMode = AutoScaleMode.Font
         CancelButton = Cancel_Button
         ClientSize = New Size(785, 351)
+        Controls.Add(cboKMLAltitideMode)
+        Controls.Add(Label11)
         Controls.Add(nudAnnimationDelay)
         Controls.Add(Label10)
         Controls.Add(btnAltitudeColumn)
@@ -402,5 +424,7 @@ Partial Class dlgSettings
     Friend WithEvents btnAltitudeColumn As Button
     Friend WithEvents nudAnnimationDelay As NumericUpDown
     Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents cboKMLAltitideMode As ComboBox
 
 End Class
