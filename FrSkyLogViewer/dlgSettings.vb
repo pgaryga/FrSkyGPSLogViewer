@@ -4,6 +4,7 @@ Public Class dlgSettings
     Public item As String = ""
     Private Sub dlgSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtGPS_Source.Text = My.Settings.GPS_Source
+        txtGPSTime.Text = My.Settings.GPS_Time
         txtLatitude.Text = My.Settings.Latitude
         txtLongitude.Text = My.Settings.Longitude
         txtAltitude_Source.Text = My.Settings.Altitude_Source
@@ -21,6 +22,13 @@ Public Class dlgSettings
 
     Private Sub btnGPSColumn_Click(sender As Object, e As EventArgs) Handles btnGPSColumn.Click
         item = "GPS"
+        If dlgChoose.ShowDialog(Me) = DialogResult.OK Then
+            txtGPS_Source.Text = My.Settings.GPS_Source
+        End If
+    End Sub
+
+    Private Sub btnGPSTime_Click(sender As Object, e As EventArgs) Handles btnGPSTime.Click
+        item = "GPS_Time"
         If dlgChoose.ShowDialog(Me) = DialogResult.OK Then
             txtGPS_Source.Text = My.Settings.GPS_Source
         End If
@@ -45,6 +53,7 @@ Public Class dlgSettings
     End Sub
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         My.Settings.GPS_Source = txtGPS_Source.Text
+        My.Settings.GPS_Time = txtGPSTime.Text
         My.Settings.Latitude = txtLatitude.Text
         My.Settings.Longitude = txtLongitude.Text
         My.Settings.Altitude_Source = txtAltitude_Source.Text

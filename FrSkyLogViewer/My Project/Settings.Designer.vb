@@ -209,6 +209,30 @@ Namespace My
                 Me("KMLAltitudeMode") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("GPS clock()")>  _
+        Public Property GPS_Time() As String
+            Get
+                Return CType(Me("GPS_Time"),String)
+            End Get
+            Set
+                Me("GPS_Time") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Filename() As String
+            Get
+                Return CType(Me("Filename"),String)
+            End Get
+            Set
+                Me("Filename") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

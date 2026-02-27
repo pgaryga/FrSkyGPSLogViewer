@@ -1,19 +1,28 @@
-﻿Public Class frmCharts
-    Dim frmMain As frmMain
-    Private Sub frmChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+﻿Imports System.Windows.Forms.DataVisualization.Charting
 
+Public Class frmCharts
+    Dim frmMain As frmMain
+    Dim filename As String
+    Private Sub frmChart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim frm As frmMain = CType(Me.Owner, frmMain)
         Dim tab As DataTable = CType(frm.DataGridView1.DataSource, DataTable)
+        clbColumns.CheckOnClick = True
+
         If tab Is Nothing Then
             MessageBox.Show("No data loaded, please open a log file first...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Me.Close()
             Return
         End If
-        For Each col As DataColumn In tab.Columns
-            If col.ColumnName <> "Date" AndAlso col.ColumnName <> "Time" Then
-                clbColumns.Items.Add(col.ColumnName)
-            End If
-        Next
+        If filename <> My.Settings.Filename Then
+            filename = My.Settings.Filename
+            clbColumns.Items.Clear()
+            Chart1.Series.Clear()
+            For Each col As DataColumn In tab.Columns
+                If col.ColumnName <> "Date" AndAlso col.ColumnName <> "Time" Then
+                    clbColumns.Items.Add(col.ColumnName)
+                End If
+            Next
+        End If
     End Sub
     Private Sub clbColumns_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles clbColumns.ItemCheck
         ' Redraw chart with selected columns
@@ -70,13 +79,93 @@
                     End If
                 End If
 
-                ' Convert Y to numeric if needed
                 Dim yVal As Double
-                If Double.TryParse(row(colName)?.ToString(), yVal) Then
-                    series.Points.AddXY(xDate, yVal)
-                End If
+                ' Convert Y to numeric if needed
+                Try
+                    If row(colName) IsNot Nothing AndAlso Double.TryParse(row(colName)?.ToString(), yVal) Then
+                        series.Points.AddXY(xDate, yVal)
+                    End If
+                Catch ex As Exception
+                    Exit For
+                End Try
+
             Next
         Next
 
     End Sub
+
+
+    ' Assumes a Chart named Chart1, with an ChartArea named "ChartArea1"
+    Private isSelecting As Boolean = False
+    Private rectStart As Point
+    Private selectionRect As Rectangle
+
+    ' 1. MouseDown: Start capturing the zoom area
+    Private Sub Chart1_MouseDown(sender As Object, e As MouseEventArgs) Handles Chart1.MouseDown
+        If e.Button = MouseButtons.Left Then
+            isSelecting = True
+            rectStart = e.Location
+        End If
+    End Sub
+
+    ' 2. MouseMove: Draw the selection rectangle
+    Private Sub Chart1_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart1.MouseMove
+        If isSelecting Then
+            Dim currentPoint As Point = e.Location
+            ' Calculate rectangle dimensions
+            Dim x As Integer = Math.Min(rectStart.X, currentPoint.X)
+            Dim y As Integer = Math.Min(rectStart.Y, currentPoint.Y)
+            Dim width As Integer = Math.Abs(rectStart.X - currentPoint.X)
+            Dim height As Integer = Math.Abs(rectStart.Y - currentPoint.Y)
+            selectionRect = New Rectangle(x, y, width, height)
+            Chart1.Invalidate() ' Force repaint to show rectangle
+        End If
+    End Sub
+
+    ' 3. Paint: Draw the selection box visually
+    Private Sub Chart1_Paint(sender As Object, e As PaintEventArgs) Handles Chart1.Paint
+        If isSelecting Then
+            Using pen As New Pen(Color.Red, 1)
+                e.Graphics.DrawRectangle(pen, selectionRect)
+            End Using
+        End If
+    End Sub
+
+    ' 4. MouseUp: Apply the zoom
+    Private Sub Chart1_MouseUp(sender As Object, e As MouseEventArgs) Handles Chart1.MouseUp
+        If isSelecting Then
+            isSelecting = False
+
+            ' Convert pixels to chart values
+            Dim ca As ChartArea = Chart1.ChartAreas("ChartArea1")
+            Dim xMin As Double = ca.AxisX.PixelPositionToValue(selectionRect.Left)
+            Dim xMax As Double = ca.AxisX.PixelPositionToValue(selectionRect.Right)
+            Dim yMin As Double = ca.AxisY.PixelPositionToValue(selectionRect.Bottom)
+            Dim yMax As Double = ca.AxisY.PixelPositionToValue(selectionRect.Top)
+
+            ' Apply new zoom range
+            ca.AxisX.Minimum = xMin
+            ca.AxisX.Maximum = xMax
+            ca.AxisY.Minimum = yMin
+            ca.AxisY.Maximum = yMax
+
+            Chart1.Invalidate()
+        End If
+    End Sub
+
+    ' 5. Optional: Right-click to reset zoom
+    Private Sub Chart1_MouseClick(sender As Object, e As MouseEventArgs) Handles Chart1.MouseClick
+        If e.Button = MouseButtons.Right Then
+            Dim ca As ChartArea = Chart1.ChartAreas("ChartArea1")
+            ca.AxisX.ScaleView.ZoomReset()
+            ca.AxisY.ScaleView.ZoomReset()
+            ' Reset axis to auto-scale if necessary
+            ca.AxisX.Minimum = Double.NaN
+            ca.AxisX.Maximum = Double.NaN
+            ca.AxisY.Minimum = Double.NaN
+            ca.AxisY.Maximum = Double.NaN
+        End If
+    End Sub
+
+
 End Class

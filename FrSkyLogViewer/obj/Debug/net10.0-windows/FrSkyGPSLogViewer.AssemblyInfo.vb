@@ -16,11 +16,11 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("FrSkyGPSLogViewer"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © Pete Garyga 2026"),  _
- Assembly: System.Reflection.AssemblyFileVersionAttribute("0.1"),  _
+ Assembly: System.Reflection.AssemblyFileVersionAttribute("0.2"),  _
  Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62441a70dc8c1f7d07830cd58ea4d900bb9bb44e"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("FrSkyGPSLogViewer"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("FrSKY GPS Log to KML "),  _
- Assembly: System.Reflection.AssemblyVersionAttribute("0.1"),  _
+ Assembly: System.Reflection.AssemblyVersionAttribute("0.2"),  _
  Assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0"),  _
  Assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")> 
 

@@ -9,9 +9,9 @@
     <Copyright>Copyright © Pete Garyga 2026</Copyright>
     <Title>FrSKY GPS Log to KML </Title>
     <AssemblyTitle>FrSKY GPS Log to KML </AssemblyTitle>
-    <AssemblyVersion>0.1</AssemblyVersion>
+    <AssemblyVersion>0.2</AssemblyVersion>
     <ImportedNamespaces>System.Data=False,System.Drawing=False,System.Windows.Forms=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,FrSkyGPSLogViewer=True</ImportedNamespaces>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

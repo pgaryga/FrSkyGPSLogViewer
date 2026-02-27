@@ -52,6 +52,9 @@ Partial Class dlgSettings
         Label10 = New Label()
         Label11 = New Label()
         cboKMLAltitideMode = New ComboBox()
+        btnGPSTime = New Button()
+        Label12 = New Label()
+        txtGPSTime = New TextBox()
         TableLayoutPanel1.SuspendLayout()
         CType(nudMaxAlt, ComponentModel.ISupportInitialize).BeginInit()
         CType(nudMinAlt, ComponentModel.ISupportInitialize).BeginInit()
@@ -70,11 +73,11 @@ Partial Class dlgSettings
         TableLayoutPanel1.Controls.Add(Cancel_Button, 2, 0)
         TableLayoutPanel1.Controls.Add(OK_Button, 1, 0)
         TableLayoutPanel1.Controls.Add(chkOpenApp, 0, 0)
-        TableLayoutPanel1.Location = New Point(208, 280)
+        TableLayoutPanel1.Location = New Point(208, 344)
         TableLayoutPanel1.Margin = New Padding(5, 6, 5, 6)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel1.Size = New Size(511, 56)
         TableLayoutPanel1.TabIndex = 0
         ' 
@@ -205,7 +208,7 @@ Partial Class dlgSettings
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(25, 158)
+        Label4.Location = New Point(25, 201)
         Label4.Name = "Label4"
         Label4.Size = New Size(141, 25)
         Label4.TabIndex = 30
@@ -214,7 +217,7 @@ Partial Class dlgSettings
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(25, 115)
+        Label3.Location = New Point(25, 158)
         Label3.Name = "Label3"
         Label3.Size = New Size(92, 25)
         Label3.TabIndex = 29
@@ -223,7 +226,7 @@ Partial Class dlgSettings
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(25, 72)
+        Label2.Location = New Point(25, 115)
         Label2.Name = "Label2"
         Label2.Size = New Size(75, 25)
         Label2.TabIndex = 28
@@ -241,7 +244,7 @@ Partial Class dlgSettings
         ' chkUseAltitude
         ' 
         chkUseAltitude.AutoSize = True
-        chkUseAltitude.Location = New Point(211, 248)
+        chkUseAltitude.Location = New Point(211, 291)
         chkUseAltitude.Name = "chkUseAltitude"
         chkUseAltitude.Size = New Size(192, 29)
         chkUseAltitude.TabIndex = 26
@@ -250,21 +253,21 @@ Partial Class dlgSettings
         ' 
         ' txtAltitude_Source
         ' 
-        txtAltitude_Source.Location = New Point(211, 152)
+        txtAltitude_Source.Location = New Point(211, 195)
         txtAltitude_Source.Name = "txtAltitude_Source"
         txtAltitude_Source.Size = New Size(150, 31)
         txtAltitude_Source.TabIndex = 25
         ' 
         ' txtLongitude
         ' 
-        txtLongitude.Location = New Point(211, 110)
+        txtLongitude.Location = New Point(211, 153)
         txtLongitude.Name = "txtLongitude"
         txtLongitude.Size = New Size(150, 31)
         txtLongitude.TabIndex = 24
         ' 
         ' txtLatitude
         ' 
-        txtLatitude.Location = New Point(211, 66)
+        txtLatitude.Location = New Point(211, 109)
         txtLatitude.Name = "txtLatitude"
         txtLatitude.Size = New Size(150, 31)
         txtLatitude.TabIndex = 23
@@ -297,7 +300,7 @@ Partial Class dlgSettings
         ' 
         ' btnAltitudeColumn
         ' 
-        btnAltitudeColumn.Location = New Point(356, 150)
+        btnAltitudeColumn.Location = New Point(356, 193)
         btnAltitudeColumn.Name = "btnAltitudeColumn"
         btnAltitudeColumn.Size = New Size(44, 34)
         btnAltitudeColumn.TabIndex = 44
@@ -328,7 +331,7 @@ Partial Class dlgSettings
         ' Label11
         ' 
         Label11.AutoSize = True
-        Label11.Location = New Point(25, 201)
+        Label11.Location = New Point(25, 244)
         Label11.Name = "Label11"
         Label11.Size = New Size(165, 25)
         Label11.TabIndex = 47
@@ -338,18 +341,46 @@ Partial Class dlgSettings
         ' 
         cboKMLAltitideMode.FormattingEnabled = True
         cboKMLAltitideMode.Items.AddRange(New Object() {"absolute", "relativeToGround", "relativeToSeaFloor"})
-        cboKMLAltitideMode.Location = New Point(208, 197)
+        cboKMLAltitideMode.Location = New Point(208, 240)
         cboKMLAltitideMode.Name = "cboKMLAltitideMode"
         cboKMLAltitideMode.Size = New Size(182, 33)
         cboKMLAltitideMode.TabIndex = 48
         ' 
+        ' btnGPSTime
+        ' 
+        btnGPSTime.Location = New Point(356, 65)
+        btnGPSTime.Name = "btnGPSTime"
+        btnGPSTime.Size = New Size(44, 34)
+        btnGPSTime.TabIndex = 51
+        btnGPSTime.Text = "..."
+        btnGPSTime.UseVisualStyleBackColor = True
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Location = New Point(25, 73)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(154, 25)
+        Label12.TabIndex = 50
+        Label12.Text = "GPS Time Column"
+        ' 
+        ' txtGPSTime
+        ' 
+        txtGPSTime.Location = New Point(211, 67)
+        txtGPSTime.Name = "txtGPSTime"
+        txtGPSTime.Size = New Size(150, 31)
+        txtGPSTime.TabIndex = 49
+        ' 
         ' dlgSettings
         ' 
         AcceptButton = OK_Button
-        AutoScaleDimensions = New SizeF(10F, 25F)
+        AutoScaleDimensions = New SizeF(10.0F, 25.0F)
         AutoScaleMode = AutoScaleMode.Font
         CancelButton = Cancel_Button
-        ClientSize = New Size(785, 351)
+        ClientSize = New Size(785, 415)
+        Controls.Add(btnGPSTime)
+        Controls.Add(Label12)
+        Controls.Add(txtGPSTime)
         Controls.Add(cboKMLAltitideMode)
         Controls.Add(Label11)
         Controls.Add(nudAnnimationDelay)
@@ -426,5 +457,8 @@ Partial Class dlgSettings
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents cboKMLAltitideMode As ComboBox
+    Friend WithEvents btnGPSTime As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents txtGPSTime As TextBox
 
 End Class

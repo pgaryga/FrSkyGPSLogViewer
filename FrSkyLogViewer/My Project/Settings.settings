@@ -41,5 +41,11 @@
     <Setting Name="KMLAltitudeMode" Type="System.String" Scope="User">
       <Value Profile="(Default)">relativeToGround</Value>
     </Setting>
+    <Setting Name="GPS_Time" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GPS clock()</Value>
+    </Setting>
+    <Setting Name="Filename" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

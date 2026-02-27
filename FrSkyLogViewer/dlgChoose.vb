@@ -18,6 +18,8 @@ Public Class dlgChoose
             lstColumns.SelectedItem = My.Settings.GPS_Source
         ElseIf dlg.item = "Altitude" Then
             lstColumns.SelectedItem = My.Settings.Altitude_Source
+        ElseIf dlg.item = "GPS_Time" Then
+            lstColumns.SelectedItem = My.Settings.GPS_Time
         End If
     End Sub
 
@@ -26,6 +28,8 @@ Public Class dlgChoose
             My.Settings.GPS_Source = lstColumns.SelectedItem
         ElseIf dlg.item = "Altitude" Then
             My.Settings.Altitude_Source = lstColumns.SelectedItem
+        ElseIf dlg.item = "GPS_Time" Then
+            My.Settings.GPS_Time = lstColumns.SelectedItem
         End If
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()

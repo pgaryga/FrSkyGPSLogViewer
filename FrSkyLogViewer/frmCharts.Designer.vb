@@ -22,8 +22,8 @@ Partial Class frmCharts
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New DataVisualization.Charting.Legend()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New DataVisualization.Charting.Legend()
         clbColumns = New CheckedListBox()
         TableLayoutPanel1 = New TableLayoutPanel()
         Chart1 = New DataVisualization.Charting.Chart()
@@ -57,11 +57,11 @@ Partial Class frmCharts
         ' 
         ' Chart1
         ' 
-        ChartArea1.Name = "ChartArea1"
-        Chart1.ChartAreas.Add(ChartArea1)
+        ChartArea2.Name = "ChartArea1"
+        Chart1.ChartAreas.Add(ChartArea2)
         Chart1.Dock = DockStyle.Fill
-        Legend1.Name = "Legend1"
-        Chart1.Legends.Add(Legend1)
+        Legend2.Name = "Legend1"
+        Chart1.Legends.Add(Legend2)
         Chart1.Location = New Point(231, 3)
         Chart1.Name = "Chart1"
         Chart1.Size = New Size(566, 444)
